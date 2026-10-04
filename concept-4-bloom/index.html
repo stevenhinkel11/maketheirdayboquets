@@ -34,7 +34,7 @@
 
   /* hero */
   .hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:#3a3a2e}
-  .hero img{position:absolute;inset:0;object-position:50% 45%;transform:scale(1.06);animation:settle 2.4s ease-out forwards}
+  .hero img{position:absolute;inset:0;object-position:50% 40%;transform:scale(1.06);animation:settle 2.4s ease-out forwards}
   @keyframes settle{to{transform:scale(1)}}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.28),transparent 28%,transparent 55%,rgba(0,0,0,.5))}
   .hero-copy{position:absolute;z-index:2;left:var(--gutter);right:var(--gutter);bottom:clamp(32px,7vh,80px);color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -91,28 +91,6 @@
   dialog h3{font:italic 400 40px/1 var(--serif);margin-bottom:14px}
   dialog p{color:var(--muted);margin-bottom:28px}
   dialog .x{display:block;margin:22px auto 0;background:none;border:0;font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer}
-
-  /* photo pop: slight color lift + dark stages */
-  :root{--night:#17191a}
-  .hero img,.stage img,.duo img,.band img,.wide img{filter:saturate(1.12) contrast(1.04)}
-  .stage{background:var(--night);color:var(--cream);padding:clamp(70px,11vw,160px) var(--gutter)}
-  .stage .row{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(14px,2.4vw,36px);align-items:end}
-  .stage figure{overflow:hidden;background:#222}
-  .stage .big{aspect-ratio:4/5}
-  .stage .sm{aspect-ratio:3/4;margin-bottom:clamp(0px,6vw,90px)}
-  .stage cite{display:block;margin-top:14px;font:normal 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#9a968a}
-  .stage.three .row{grid-template-columns:repeat(3,1fr);align-items:start}
-  .stage.three figure{aspect-ratio:3/4}
-  .stage.three figure:nth-child(2){margin-top:clamp(40px,8vw,120px)}
-  .stage.three figure:nth-child(3){margin-top:clamp(20px,4vw,60px)}
-  .stage figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-  .stage figure:hover img{transform:scale(1.04)}
-  .stage h2{font:italic 400 clamp(36px,5.5vw,80px)/1 var(--serif);text-align:center;margin-bottom:clamp(36px,6vw,80px)}
-  @media(max-width:720px){
-    .stage .row,.stage.three .row{grid-template-columns:1fr 1fr}
-    .stage .big{grid-column:1/-1}
-    .stage.three figure:nth-child(3){grid-column:1/-1;aspect-ratio:4/3;margin-top:0}
-  }
 </style>
 </head>
 <body>
@@ -124,7 +102,7 @@
 </header>
 
 <section class="hero">
-  <img src="../assets/img/7165.jpg" alt="Pink gerbera and roses in a bowl by a sunlit window">
+  <img src="../assets/img/7165.jpg" alt="Pink gerbera and yellow roses in a bowl by a sunlit window">
   <div class="hero-copy">
     <h1>Make their<br>day.</h1>
     <p>Custom bouquets &amp; pop-ups</p>
@@ -135,16 +113,10 @@
   <p class="rv">Bouquets made by hand, <em>for the people you love.</em></p>
 </section>
 
-<section class="stage">
-  <div class="row">
-    <figure class="rv big"><img src="../assets/img/7160.jpg" loading="lazy" alt="Sunflowers, roses and gerbera in a white bowl on a deck rail"></figure>
-    <figure class="rv sm"><img src="../assets/img/7162.jpg" loading="lazy" alt="Pink gerbera, roses and chrysanthemums in a white bowl"></figure>
-  </div>
-</section>
-
-<section class="duo">
+<section class="trio">
+  <figure class="rv"><img src="../assets/img/7163.jpg" loading="lazy" alt="Yellow roses and sunflowers in a white bowl beside a window"></figure>
   <figure class="rv"><img src="../assets/img/7145.jpg" loading="lazy" alt="Roses, sunflowers and gerbera arranged in a small pumpkin"></figure>
-  <figure class="rv"><img src="../assets/img/7154.jpg" loading="lazy" alt="Roses and daisies in a glass jar tied with white ribbon"></figure>
+  <figure class="rv"><img src="../assets/img/7166.jpg" loading="lazy" alt="Overhead view of a bouquet with peach roses and daisies"></figure>
 </section>
 
 <section class="band">
@@ -155,13 +127,9 @@
   </div>
 </section>
 
-<section class="stage three" style="margin-top:clamp(90px,14vw,200px)">
-  <h2 class="rv">Made by hand</h2>
-  <div class="row">
-    <figure class="rv"><img src="../assets/img/7167.jpg" loading="lazy" alt="Sunflower and magenta gerbera against white wood"></figure>
-    <figure class="rv"><img src="../assets/img/7172.jpg" loading="lazy" alt="Hand-held bouquet wrapped in kraft paper with a sage ribbon"></figure>
-    <figure class="rv"><img src="../assets/img/7166.jpg" loading="lazy" alt="Overhead view of a bouquet with peach roses and daisies"></figure>
-  </div>
+<section class="duo">
+  <figure class="rv"><img src="../assets/img/7195.jpg" loading="lazy" alt="Kraft-wrapped bouquets in an enamel bucket"></figure>
+  <figure class="rv"><img src="../assets/img/7154.jpg" loading="lazy" alt="Roses and daisies in a glass jar tied with white ribbon"></figure>
 </section>
 
 <section class="close">
