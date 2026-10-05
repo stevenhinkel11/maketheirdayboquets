@@ -85,6 +85,15 @@
     .duo{grid-template-columns:1fr}.duo figure:last-child{margin-top:0}
   }
 
+
+  /* contact dialog */
+  dialog{border:0;border-radius:4px;padding:clamp(32px,6vw,56px);max-width:460px;width:calc(100% - 36px);background:var(--cream);color:var(--ink);text-align:center;margin:auto}
+  dialog::backdrop{background:rgba(30,28,22,.55);backdrop-filter:blur(3px)}
+  dialog h3{font:italic 400 40px/1 var(--serif);margin-bottom:14px}
+  dialog p{color:var(--muted);margin-bottom:22px}
+  dialog .addr{display:block;font:500 clamp(15px,4vw,18px) var(--sans);letter-spacing:.02em;margin-bottom:26px;word-break:break-all;user-select:all}
+  dialog .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  dialog .x{display:block;margin:22px auto 0;background:none;border:0;font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer}
 </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -95,7 +104,7 @@
 <header id="top">
   <span class="meta">Felton, California</span>
   <a class="brand" href="#top">Make Their Day Bouquets</a>
-  <a class="btn" href="mailto:maketheirdaybouquets@gmail.com">Contact</a>
+  <button class="btn" data-contact>Contact</button>
 </header>
 
 <section class="hero">
@@ -131,13 +140,24 @@
 
 <section class="close">
   <h2 class="rv">Let’s make someone’s day.</h2>
-  <a class="btn solid rv" href="mailto:maketheirdaybouquets@gmail.com">Contact</a>
+  <button class="btn solid rv" data-contact>Contact</button>
 </section>
 
 <footer>
   <span>© <span id="yr"></span> Make Their Day Bouquets</span>
   <a href="https://www.instagram.com/maketheirdaybouquets/" target="_blank" rel="noopener">Instagram</a>
 </footer>
+
+<dialog id="contact">
+  <h3>Say hello</h3>
+  <p>For custom bouquets and pop-up dates, send us an email.</p>
+  <span class="addr" id="addr">maketheirdaybouquets@gmail.com</span>
+  <div class="actions">
+    <a class="btn solid" href="mailto:maketheirdaybouquets@gmail.com">Send an email</a>
+    <button class="btn" id="copy">Copy email</button>
+  </div>
+  <button class="x" data-close>Close</button>
+</dialog>
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
@@ -146,6 +166,16 @@
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const dlg=document.getElementById('contact');
+  document.querySelectorAll('[data-contact]').forEach(b=>b.onclick=()=>dlg.showModal());
+  dlg.querySelector('[data-close]').onclick=()=>dlg.close();
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+  const copy=document.getElementById('copy'),addr=document.getElementById('addr');
+  copy.onclick=async()=>{
+    try{await navigator.clipboard.writeText(addr.textContent)}
+    catch(_){const r=document.createRange();r.selectNodeContents(addr);const g=getSelection();g.removeAllRanges();g.addRange(r);document.execCommand('copy')}
+    copy.textContent='Copied ✓';setTimeout(()=>copy.textContent='Copy email',2000);
+  };
 </script>
 </body>
 </html>
