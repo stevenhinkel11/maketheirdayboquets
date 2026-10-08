@@ -51,8 +51,14 @@
   .hero h1{font:italic 400 clamp(52px,12vw,180px)/.92 'Playfair Display',Georgia,serif}
   .hero p{margin-top:28px;line-height:2;font:500 12px 'Work Sans',system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase}
 
+  .quad{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,22px);padding:clamp(40px,6vw,90px) var(--gutter) 0;align-items:start}
+  .quad figure{aspect-ratio:3/4;overflow:hidden;background:var(--paper)}
+  .quad figure:nth-child(even){margin-top:clamp(30px,5vw,80px)}
+  .quad img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .quad figure:hover img{transform:scale(1.04)}
+  @media(max-width:720px){.quad{grid-template-columns:1fr 1fr}.quad figure:nth-child(even){margin-top:30px}}
   /* intro */
-  .intro{padding:clamp(80px,14vw,190px) var(--gutter);text-align:center}
+  .intro{padding:clamp(70px,11vw,150px) var(--gutter);text-align:center}
   .intro p{font:400 clamp(28px,4.4vw,60px)/1.18 var(--serif);max-width:20ch;margin:auto}
   .intro p em{color:var(--marigold-dk)}
 
@@ -122,6 +128,13 @@
     <h1>Make Their<br>Day</h1>
     <p>Custom arrangements for all occasions<br>Local delivery available</p>
   </div>
+</section>
+
+<section class="quad">
+  <figure class="rv"><img src="assets/img/dusty-pink-roses.jpg" srcset="assets/img/800/dusty-pink-roses.jpg 800w, assets/img/1200/dusty-pink-roses.jpg 1200w, assets/img/dusty-pink-roses.jpg 1086w" sizes="(max-width:720px) 50vw, 25vw" loading="lazy" alt="Dusty pink roses wrapped in kraft paper with a sage ribbon"></figure>
+  <figure class="rv"><img src="assets/img/travertine-bouquet.jpg" srcset="assets/img/800/travertine-bouquet.jpg 800w, assets/img/1200/travertine-bouquet.jpg 1200w, assets/img/travertine-bouquet.jpg 1086w" sizes="(max-width:720px) 50vw, 25vw" loading="lazy" alt="Mixed bouquet of pink roses, white and magenta blooms and eucalyptus on a stone surface"></figure>
+  <figure class="rv"><img src="assets/img/lavender-magenta.jpg" srcset="assets/img/800/lavender-magenta.jpg 800w, assets/img/1200/lavender-magenta.jpg 1200w, assets/img/lavender-magenta.jpg 1086w" sizes="(max-width:720px) 50vw, 25vw" loading="lazy" alt="Lavender roses, magenta blooms and white daisies in a glass vase"></figure>
+  <figure class="rv"><img src="assets/img/garden-trio.jpg" srcset="assets/img/800/garden-trio.jpg 800w, assets/img/1200/garden-trio.jpg 1200w, assets/img/garden-trio.jpg 1086w" sizes="(max-width:720px) 50vw, 25vw" loading="lazy" alt="Three kraft-wrapped bouquets in an enamel bucket in a garden"></figure>
 </section>
 
 <section class="intro">
